@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 575;
+  background-color: rgb(240, 240, 240);
+  margin: auto;
+  margin-top: 20px;
+  border-top: 10px gray solid;
+  border-left: 4px gray solid;
+  border-right: 4px gray solid;
+  border-bottom: 10px rgb(216, 216, 216) solid;
+  border-radius: 6px;
+}
+
+#charging {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+#solar-panel {
+  width: 150px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: rgb(48, 46, 28);
+}
+
+#brand-name {
+  font-size: 1.5em;
+  font-family: "Electrolize", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.label-text {
+  font-size: 12px;
+  margin: 4px;
+}
+
+#output {
+  display: flex;
+  justify-content: center;
+}
+
+#screen {
+  width: 85%;
+  height: 100px;
+  background-color: rgb(168, 168, 156);
+  border: 2px solid rgb(124, 124, 121);
+  border-radius: 4px;
+}
+
+#input {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+#keypad {
+  display: flex;
+  flex-direction: column;
+  margin-right: 18px;
+}
+
+#top-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#bottom-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.button {
+  width: 60px;
+  height: 50px;
+  background-color: darkgray;
+}
