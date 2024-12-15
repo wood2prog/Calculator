@@ -54,6 +54,7 @@
 #screen {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 85%;
   height: 100px;
   background-color: rgb(168, 168, 156);
@@ -69,6 +70,9 @@
 #numeric-output {
   font-size: 4em;
   text-align: right;
+  height: 70px;
+  border: none;
+  background-color: rgb(168, 168, 156);
 }
 
 #input {
