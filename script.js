@@ -19,6 +19,7 @@ const multiply = document.getElementById("multiply");
 const minus = document.getElementById("minus");
 const addition = document.getElementById("addition");
 const allClear = document.getElementById("all-clear");
+const arrow = document.getElementById("arrow");
 
 // digit buttons
 const zero = document.getElementById("zero");
@@ -31,10 +32,11 @@ const six = document.getElementById("six");
 const seven = document.getElementById("seven");
 const eight = document.getElementById("eight");
 const nine = document.getElementById("nine");
+const decimal = document.getElementById("decimal");
 
 let isInMemoryMode = true;
 let totalValueInMemory = 0;
-let valueOnScreen = 0;
+let valueOnScreen = "0";
 
 const toggleSignsOff = function () {
   modeDivision.classList.add("hidden");
@@ -44,17 +46,37 @@ const toggleSignsOff = function () {
 };
 
 const updateScreen = function (num) {
-  valueOnScreen = num;
-  document.querySelector("#numeric-output").value = valueOnScreen;
+  document.querySelector("#numeric-output").value = num;
 };
 
 // initialize the screen on startup
 updateScreen(totalValueInMemory);
 
+const addDigit = function (digit) {
+  if (valueOnScreen === "0") {
+    valueOnScreen = String(digit);
+  } else {
+    valueOnScreen += String(digit);
+  }
+  updateScreen(valueOnScreen);
+};
+
+const addDecimal = function () {
+  if (!valueOnScreen.includes(".")) {
+    valueOnScreen += ".";
+  }
+  updateScreen(valueOnScreen);
+};
+
 modeMEx.addEventListener("click", () => {
+  modeMEx.style.borderColor = "rgb(23, 23, 23)";
   isInMemoryMode ? false : true;
   modeMemory.classList.toggle("hidden");
   modeExch.classList.toggle("hidden");
+});
+
+arrow.addEventListener("click", () => {
+  totalValueInMemory = totalValueInMemory;
 });
 
 divide.addEventListener("click", () => {
@@ -78,56 +100,51 @@ addition.addEventListener("click", () => {
 });
 
 zero.addEventListener("click", () => {
-  totalValueInMemory *= 10;
-  updateScreen(totalValueInMemory);
+  addDigit("0");
 });
 
 one.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 1;
-  updateScreen(totalValueInMemory);
+  addDigit("1");
 });
 
 two.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 2;
-  updateScreen(totalValueInMemory);
+  addDigit("2");
 });
 
 three.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 3;
-  updateScreen(totalValueInMemory);
+  addDigit("3");
 });
 
 four.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 4;
-  updateScreen(totalValueInMemory);
+  addDigit("4");
 });
 
 five.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 5;
-  updateScreen(totalValueInMemory);
+  addDigit("5");
 });
 
 six.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 6;
-  updateScreen(totalValueInMemory);
+  addDigit("6");
 });
 
 seven.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 7;
-  updateScreen(totalValueInMemory);
+  addDigit("7");
 });
 
 eight.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 8;
-  updateScreen(totalValueInMemory);
+  addDigit("8");
 });
 
 nine.addEventListener("click", () => {
-  totalValueInMemory = totalValueInMemory * 10 + 9;
-  updateScreen(totalValueInMemory);
+  addDigit("9");
 });
 
 allClear.addEventListener("click", () => {
+  valueOnScreen = "0";
   totalValueInMemory = 0;
-  updateScreen(totalValueInMemory);
+  updateScreen(valueOnScreen);
+});
+
+decimal.addEventListener("click", () => {
+  addDecimal();
 });
