@@ -33,10 +33,15 @@ const seven = document.getElementById("seven");
 const eight = document.getElementById("eight");
 const nine = document.getElementById("nine");
 const decimal = document.getElementById("decimal");
+const equals = document.getElementById("equals");
 
 let isInMemoryMode = true;
 let totalValueInMemory = 0;
 let valueOnScreen = "0";
+
+const performMathOperation = function () {
+  updateScreen(Number("34"));
+};
 
 const toggleSignsOff = function () {
   modeDivision.classList.add("hidden");
@@ -97,6 +102,10 @@ minus.addEventListener("click", () => {
 addition.addEventListener("click", () => {
   toggleSignsOff();
   modeAddition.classList.remove("hidden");
+});
+
+equals.addEventListener("click", () => {
+  performMathOperation();
 });
 
 zero.addEventListener("click", () => {
