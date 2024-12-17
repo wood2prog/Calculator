@@ -55,7 +55,7 @@ updateScreen(totalValueInMemory);
 const addDigit = function (digit) {
   if (valueOnScreen === "0") {
     valueOnScreen = String(digit);
-  } else {
+  } else if (valueOnScreen.length <= 8) {
     valueOnScreen += String(digit);
   }
   updateScreen(valueOnScreen);
