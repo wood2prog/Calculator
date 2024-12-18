@@ -38,9 +38,17 @@ const equals = document.getElementById("equals");
 let isInMemoryMode = true;
 let totalValueInMemory = 0;
 let valueOnScreen = "0";
+let mathOperation = "";
 
 const performMathOperation = function () {
-  updateScreen(Number("34"));
+  if (!totalValueInMemory || !mathOperation) {
+    totalValueInMemory = valueOnScreen;
+  } else {
+    if (mathOperation === "+") {
+      totalValueInMemory += Number(valueOnScreen);
+    }
+  }
+  updateScreen(totalValueInMemory);
 };
 
 const toggleSignsOff = function () {
@@ -64,6 +72,8 @@ const addDigit = function (digit) {
     valueOnScreen += String(digit);
   }
   updateScreen(valueOnScreen);
+  totalValueInMemory = 0;
+  valueOnScreen = "";
 };
 
 const addDecimal = function () {
@@ -102,10 +112,16 @@ minus.addEventListener("click", () => {
 addition.addEventListener("click", () => {
   toggleSignsOff();
   modeAddition.classList.remove("hidden");
+
+  // store screen value in memory
+  totalValueInMemory = Number("34");
+  mathOperation = "+";
+  valueOnScreen = "";
 });
 
 equals.addEventListener("click", () => {
   performMathOperation();
+  toggleSignsOff();
 });
 
 zero.addEventListener("click", () => {
